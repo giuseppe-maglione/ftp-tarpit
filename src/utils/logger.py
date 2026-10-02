@@ -27,7 +27,7 @@ LOGGING_CONFIG = {
         },
     },
     'loggers': {
-        'Mantis': {
+        'FTP-Tarpit': {
             'handlers': ['file'], # Il gestore console è delegato a coloredlogs
             'level': 'INFO',
             'propagate': False,
@@ -37,7 +37,7 @@ LOGGING_CONFIG = {
 
 # Applica la configurazione per il file
 logging.config.dictConfig(LOGGING_CONFIG)
-logger = logging.getLogger("Mantis")
+logger = logging.getLogger("FTP-Tarpit")
 
 # Configura coloredlogs esclusivamente per un output su console elegante e leggibile
 coloredlogs.install(

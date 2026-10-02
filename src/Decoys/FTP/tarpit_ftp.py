@@ -6,7 +6,7 @@ from .. import DecoyService
 from ...utils.logger import logger
 from ...utils import uniform_random_natural, generate_random_date
 
-from .fake_ftp import AnonymousFTP
+from .anonymous_ftp import AnonymousFTP
 
 class TarpitFTP(AnonymousFTP):
 

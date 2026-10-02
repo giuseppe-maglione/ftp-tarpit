@@ -5,7 +5,6 @@ from . import  ENCODING, KILL_PROCESS, KEEP_ALIVE
 from ..utils import get_local_ip, get_public_ip, is_private_ip
 from ..utils.logger import logger
 from .tracker import Tracker
-from .IP_blocker import IP_blocker
 
 class DefaultInjectionManager:
 	def __init__(
@@ -13,7 +12,6 @@ class DefaultInjectionManager:
 		trigger_events,
 		host_local_ip,
 		host_public_ip,
-		IP_partial_block=False,
 	):
 		self.trigger_events = trigger_events
 		self.host_local_ip = host_local_ip
@@ -23,12 +21,6 @@ class DefaultInjectionManager:
 		self.tracker = Tracker()
 
 		self.IP_blocker = None
-		if IP_partial_block:
-			if IP_blocker.is_iptables_installed():
-				logger.info(f"Partial IP blocking active")
-				self.IP_blocker = IP_blocker()
-			else:
-				logger.error("*iptables* has not been found on the system. Partial IP will not be actived!")
 
 	def set_target_ip(self, attacker_ip, payload):
 
